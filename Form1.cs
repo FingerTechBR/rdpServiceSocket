@@ -127,6 +127,31 @@ namespace rdpServiceSocket
 
             
         }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            {
+                if (WindowState == FormWindowState.Minimized)
+                {
+                    this.Hide();
+                    this.ShowInTaskbar = false;
+                }
+            }
+        }
+
+
         private void Button1_Click(object sender, EventArgs e)
         {
 
@@ -142,9 +167,6 @@ namespace rdpServiceSocket
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }
