@@ -25,88 +25,104 @@ namespace rdpServiceSocket
         {
 
             InitializeComponent();
-            thread =new Thread(Server);
+            thread = new Thread(Server);
             thread.Start();
         }
 
         private void Server()
         {
-
-
             server = null;
             try
             {
-
+                IPAddress ip;
                 Int32 port = 13000;
-                IPAddress ip = IPAddress.Parse(File.ReadAllText(@"C:\\Windows\\fingertechts.ini"));
+                try
+                {
+                    ip = IPAddress.Parse(File.ReadAllText(@"C:\\Windows\\fingertechts.ini"));
+                }catch(Exception e)
+                {
+                    ip = null;
+                    MessageBox.Show("Não foi possível encontrar fingertechts.ini, adicione o arquivo e reinicie o programa");
+                }
+
+               
+                
+
+                if (ip == null) { setStatus("falha ao inicializar, fingertech.ini não encontrado"); return; }
+                setlabel(lb_ip, ip.ToString());
                 server = new TcpListener(ip, port);
                 server.Start();
+                setStatus("Serviço Iniciado");
                 Byte[] bytes = new Byte[15000];
                 String data = null;
 
                 while (true)
                 {
                    
-
                     String digital = null;
-                    TcpClient client = server.AcceptTcpClient();
-                    //Console.WriteLine("Connected!");
+                    TcpClient client = server.AcceptTcpClient();               
 
                     data = null;
                     NetworkStream stream = client.GetStream();
                     int i = stream.Read(bytes, 0, bytes.Length);
                     data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
-
-                  
-                        switch (data)
-                        {
-                            case "0":
-                                digital = utils.Enroll();
-                                break;
-                            case "1":
-                                digital = utils.Capturar();
-                                break;
-                        }
+                    switch (data)
+                    {
+                        case "0":
+                            digital = utils.Enroll();
+                            break;
+                        case "1":
+                            digital = utils.Capturar();
+                            break;
+                    }
                     if (digital == null)
                     {
-                        lb_status.BeginInvoke(new Action(() =>
-                        {
-                            lb_status.Text = "Não foi possível Capturar digital, verifique conexão";
-                        }));
-                        digital = "";
+                        setStatus("Não foi possível Capturar digital, verifique conexão");                       
+                    }
+                    else
+                    {
+                        setStatus("ok");
                     }
 
-
-
-                    
                     //Converter para array de byte
                     byte[] msg = System.Text.Encoding.ASCII.GetBytes(digital);
                     //envia resposta de volta
                     stream.Write(msg, 0, msg.Length);
+                    setlabel(lb_ip_req, client.Client.RemoteEndPoint.ToString());
                     client.Close();
-
-
                    
                 }
             }
             catch (SocketException e)
             {
-                lb_status.Text = "Não foi possível Capturar digital, verifique conexão";
+               setStatus("Não foi possível Capturar digital, verifique conexão");
 
-
-               
-            }           
-
-
-
+            }    
         }
 
 
+        public void setlabel(Label label, String text)
+        {
+            label.BeginInvoke(new Action(() =>
+            {
+                label.Text = text;
+            }
 
+                ));
+        }
+
+
+        public void setStatus(String text)
+        {
+            lb_status.BeginInvoke(new Action(() =>
+            {
+                lb_status.Text = text;
+            }));
+        }
          private  void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-            server.Stop();
+            if (server != null) server.Stop();
             thread.Abort();
 
             
@@ -117,6 +133,16 @@ namespace rdpServiceSocket
         }
 
         private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lb_ip_req_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
