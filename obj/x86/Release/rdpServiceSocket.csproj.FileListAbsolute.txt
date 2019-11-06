@@ -1,0 +1,12 @@
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.Form1.resources
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.Properties.Resources.resources
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.csproj.GenerateResource.cache
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.csproj.CoreCompileInputs.cache
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\bin\x86\Release\fingertechts.ini
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\bin\x86\Release\rdpServiceSocket.exe.config
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\bin\x86\Release\rdpServiceSocket.exe
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\bin\x86\Release\rdpServiceSocket.pdb
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\bin\x86\Release\NITGEN.SDK.NBioBSP.dll
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.csproj.CopyComplete
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.exe
+C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.pdb
