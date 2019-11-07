@@ -22,6 +22,7 @@ namespace rdpServiceSocket
             NBioAPI.Type.FIR_TEXTENCODE texto = new NBioAPI.Type.FIR_TEXTENCODE();
             //Get FIR data
             uint device = m_NBioAPI.OpenDevice(255);
+          
             if (device != NBioAPI.Error.NONE)
             {
                 return null;
@@ -37,14 +38,12 @@ namespace rdpServiceSocket
         public string Enroll()
         {
             
-            NBioAPI.Type.FIR_TEXTENCODE m_textFIR;
-            NBioAPI.Type.HFIR NewFIR;
-            NBioAPI.IndexSearch m_IndexSearch = new NBioAPI.IndexSearch(m_NBioAPI);
+            NBioAPI.Type.FIR_TEXTENCODE m_textFIR = new NBioAPI.Type.FIR_TEXTENCODE();
+            NBioAPI.Type.HFIR NewFIR = new NBioAPI.Type.HFIR();           
 
             NBioAPI.Type.WINDOW_OPTION m_WinOption = new NBioAPI.Type.WINDOW_OPTION();
             m_WinOption.WindowStyle = (uint)NBioAPI.Type.WINDOW_STYLE.NO_WELCOME;
-            string Retorno = "";
-             m_NBioAPI.OpenDevice(255);
+            string Retorno = "";            
             uint device = m_NBioAPI.OpenDevice(255);
             if (device != NBioAPI.Error.NONE)
             {
