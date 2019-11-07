@@ -42,11 +42,11 @@ namespace rdpServiceSocket
                 }catch(Exception e)
                 {
                     ip = null;
-                    MessageBox.Show("Não foi possível encontrar fingertechts.ini, adicione o arquivo e reinicie o programa");
-                }
 
-               
-                
+                    MessageBox.Show("Não foi possível encontrar fingertechts.ini, adicione o arquivo e reinicie o programa");
+                   
+
+                }
 
                 if (ip == null) { setStatus("falha ao inicializar, fingertech.ini não encontrado"); return; }
                 setlabel(lb_ip, ip.ToString());
@@ -56,7 +56,7 @@ namespace rdpServiceSocket
                 Byte[] bytes = new Byte[15000];
                 String data = null;
 
-                while (true)
+                while (true) 
                 {
                    
                     String digital = null;
@@ -77,7 +77,8 @@ namespace rdpServiceSocket
                     }
                     if (digital == null)
                     {
-                        setStatus("Não foi possível Capturar digital, verifique conexão");                       
+                        setStatus("Não foi possível Capturar digital, Dispositivo não encontrado");
+                        digital = "";
                     }
                     else
                     {
