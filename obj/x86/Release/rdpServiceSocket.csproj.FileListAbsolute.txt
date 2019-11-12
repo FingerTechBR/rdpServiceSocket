@@ -10,4 +10,3 @@ C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\bin\x86\Release\
 C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.csproj.CopyComplete
 C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.exe
 C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.pdb
-C:\Users\Lincoln\source\repos\rdpServiceSocket\rdpServiceSocket\obj\x86\Release\rdpServiceSocket.csprojAssemblyReference.cache
