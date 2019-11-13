@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using NITGEN.SDK.NBioBSP;
+using System;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace rdpServiceSocket
 {
@@ -45,7 +40,6 @@ namespace rdpServiceSocket
 
                     MessageBox.Show("Não foi possível encontrar fingertechts.ini, adicione o arquivo e reinicie o programa");
                    
-
                 }
 
                 if (ip == null) { setStatus("falha ao inicializar, fingertech.ini não encontrado"); return; }
@@ -53,7 +47,7 @@ namespace rdpServiceSocket
                 server = new TcpListener(ip, port);
                 server.Start();
                 setStatus("Serviço Iniciado");
-                Byte[] bytes = new Byte[15000];
+                Byte[] bytes = new Byte[10000];
                 String data = null;
 
                 while (true) 
@@ -70,9 +64,18 @@ namespace rdpServiceSocket
                     {
                         case "0":
                             digital = utils.Enroll();
+                            Console.WriteLine("digital " +digital);
+
+
                             break;
                         case "1":
                             digital = utils.Capturar();
+                           
+                           NBioAPI m_NBioAPI = new NBioAPI();
+                            // m_NBioAPI.Process(text, out HFIR);    
+                            Console.WriteLine("digital " + digital);
+
+
                             break;
                     }
                     if (digital == null)

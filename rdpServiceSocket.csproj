@@ -55,6 +55,9 @@
   <PropertyGroup>
     <ApplicationIcon>iconfinder_12-lan-connected-512x512_265522.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NITGEN.SDK.NBioBSP, Version=5.0.0.0, Culture=neutral, PublicKeyToken=96eee45103d523d1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
