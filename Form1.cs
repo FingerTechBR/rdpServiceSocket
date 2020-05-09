@@ -15,10 +15,8 @@ namespace rdpServiceSocket
         TcpListener server;
         utilsNitgen utils = new utilsNitgen();
         Thread thread;
-
         public Form1()
         {
-
             InitializeComponent();
             thread = new Thread(Server);
             thread.Start();
@@ -64,18 +62,11 @@ namespace rdpServiceSocket
                     {
                         case "0":
                             digital = utils.Enroll();
-                            Console.WriteLine("digital " +digital);
-
-
                             break;
                         case "1":
                             digital = utils.Capturar();
                            
-                           NBioAPI m_NBioAPI = new NBioAPI();
-                            // m_NBioAPI.Process(text, out HFIR);    
-                            Console.WriteLine("digital " + digital);
-
-
+                           NBioAPI m_NBioAPI = new NBioAPI();   
                             break;
                     }
                     if (digital == null)
@@ -87,8 +78,7 @@ namespace rdpServiceSocket
                     {
                         setStatus("ok");
                     }
-
-                    //Converter para array de byte
+                                      
                     byte[] msg = System.Text.Encoding.ASCII.GetBytes(digital);
                     //envia resposta de volta
                     stream.Write(msg, 0, msg.Length);
@@ -103,8 +93,7 @@ namespace rdpServiceSocket
 
             }    
         }
-
-
+        
         public void setlabel(Label label, String text)
         {
             label.BeginInvoke(new Action(() =>
@@ -114,7 +103,6 @@ namespace rdpServiceSocket
 
                 ));
         }
-
 
         public void setStatus(String text)
         {
@@ -128,10 +116,8 @@ namespace rdpServiceSocket
 
             if (server != null) server.Stop();
             thread.Abort();
-
-            
+                        
         }
-
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
@@ -154,8 +140,6 @@ namespace rdpServiceSocket
                 }
             }
         }
-
-
         private void Button1_Click(object sender, EventArgs e)
         {
 
@@ -170,7 +154,6 @@ namespace rdpServiceSocket
         {
 
         }
-
   
     }
 }
